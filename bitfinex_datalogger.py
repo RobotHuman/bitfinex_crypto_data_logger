@@ -10,6 +10,7 @@ from datetime import datetime
 from colorama import Fore, Back, Style, init
 
 trading_pair = 'btcusd'
+interval = 5 #seconds between each query
 
 #any pair available on bitfinex can be entered above
 
@@ -100,7 +101,7 @@ while(True):
 		Style.RESET_ALL
 	
 	DBme(filtered,book, time_now)
-	time.sleep(5)
+	time.sleep(interval)
 
 mongo_documents = mongo_collection.find({     'ide': 'ide'}) 
 for this_document in mongo_documents:     
