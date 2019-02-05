@@ -8,12 +8,12 @@ import simplejson
 import time
 from datetime import datetime
 from colorama import Fore, Back, Style, init
-init()
 
 trading_pair = 'btcusd'
 
 #any pair available on bitfinex can be entered above
 
+init()
 mongo = pymongo.Connection() 
 mongo_db = mongo['NAME OF YOUR DATABASE']
 mongo_collection = mongo_db['my_collection']
@@ -38,6 +38,7 @@ def SimpleJason(url):
 	return simplejson.load(f)#f.read()
 
 def Book(trading_pair):
+	#grabs order book data for a given trading pair
 	try:
 		data = SimpleJason("https://api.bitfinex.com/v1/book/" + trading_pair)
 	except:
@@ -45,6 +46,7 @@ def Book(trading_pair):
 	return data
 
 def Transactions(trading_pair):
+	#grabs transaction data for a given trading pair
 	try:
 		data = SimpleJason("https://api.bitfinex.com/v1/trades/"+ trading_pair)
 	except:
