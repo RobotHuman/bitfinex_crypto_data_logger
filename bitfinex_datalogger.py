@@ -52,7 +52,6 @@ def Transactions(trading_pair):
 		data = []
 	return data
 
-
 def Filter(transactions, previoustransactions):
 	#takes current transaction data and the previous transaction data and it
  	#eliminates transactions that were in the previous transaction data so 
