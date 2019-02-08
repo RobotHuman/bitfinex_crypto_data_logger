@@ -73,6 +73,7 @@ def Filter(transactions, previoustransactions):
 
 
 ###### catch data that might have been missed after a crash
+
 book = Book(trading_pair)
 previoustransactions = Transactions(trading_pair)
 time_now = datetime.now()
