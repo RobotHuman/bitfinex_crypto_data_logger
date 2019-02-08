@@ -102,7 +102,3 @@ while(True):
 	
 	DBme(filtered,book, time_now)
 	time.sleep(interval)
-
-mongo_documents = mongo_collection.find({     'ide': 'ide'}) 
-for this_document in mongo_documents:     
-	print this_document
