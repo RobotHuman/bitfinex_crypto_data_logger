@@ -1,7 +1,3 @@
-#This script will record all transactions that happen on bitfinex for a given trading pair along with a snapshot of the order book
-#and store it all in a mongodb database.
-
-
 import pymongo 
 import urllib2
 import simplejson
@@ -40,6 +36,7 @@ def SimpleJason(url):
 
 def Book(trading_pair):
 	#grabs order book data for a given trading pair
+	
 	try:
 		data = SimpleJason("https://api.bitfinex.com/v1/book/" + trading_pair)
 	except:
@@ -48,6 +45,7 @@ def Book(trading_pair):
 
 def Transactions(trading_pair):
 	#grabs transaction data for a given trading pair
+	
 	try:
 		data = SimpleJason("https://api.bitfinex.com/v1/trades/"+ trading_pair)
 	except:
@@ -61,7 +59,6 @@ def Filter(transactions, previoustransactions):
  	#no transactions appear more than once in the database.  It returns a
  	#filtered dictionary of transactions.
   
-
 	filtered =[]
 	for i in range(len(transactions)):
 		if(i != 0 and len(previoustransactions) > 0):
@@ -75,13 +72,11 @@ def Filter(transactions, previoustransactions):
 	return filtered, previoustransactions
 
 
-
 ###### catch data that might have been missed after a crash
 book = Book(trading_pair)
 previoustransactions = Transactions(trading_pair)
 time_now = datetime.now()
 DBme(previoustransactions,book, time_now)
-
 
 
 #main loop
