@@ -8,7 +8,7 @@ from colorama import Fore, Back, Style, init
 trading_pair = 'btcusd'
 interval = 5 #seconds between each query
 
-#any pair available on bitfinex can be entered above
+
 
 init()
 mongo = pymongo.Connection() 
