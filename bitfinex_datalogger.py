@@ -32,7 +32,7 @@ def SimpleJason(url):
 	req = urllib2.Request(url)
 	opener = urllib2.build_opener()
 	f = opener.open(req, timeout = 10)
-	return simplejson.load(f)#f.read()
+	return simplejson.load(f)
 
 def Book(trading_pair):
 	#grabs order book data for a given trading pair
